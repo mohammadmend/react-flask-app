@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create Account</h1>
+    <form method="post">
+        <label>Username: <input name="username" required></label><br>
+        <label>Email: <input type="email" name="email" required></label><br>
+        <label>Password: <input type="password" name="password" required></label><br>
+        <label for="role"> Choose your role:</label>
+        <select name ="role" id="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Create Account</button>
+    </form>
+
+{% endblock %}
+

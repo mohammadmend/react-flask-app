@@ -1,0 +1,22 @@
+{% extends "second.html" %}
+
+{% block content %}
+    <h1>Welcome to the Request Management System</h1>
+    {% if role == 'admin' %}
+        <p>Hi {{user}}, you can manage requests.</p>
+        <a href={{url_for('main.manage_requests')}}> Manage Requests</a>
+        <p> Here are all of the requests</p>
+    {% else %}
+        <p>Hi {{user}}, you can make requests.</p>
+        <a href={{url_for('main.submit_request')}}> Make a Request</a>
+        <p> Here are you requests</p>
+    {% endif %}
+    {% for req in posts%}
+        <div>
+            <p><b>Title: {{ req.title }}</b></p>
+            <p><b>Issue: {{ req.description }}</b></p>
+            <p>Request Status: {{ req.status }}</p>
+            <p>Request Date: {{ req.createdate }}</p>
+        </div>    
+    {% endfor %}
+{% endblock %}

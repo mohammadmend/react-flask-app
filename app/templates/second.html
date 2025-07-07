@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticketing Sytem</title>
+    <body>
+       <div>APP:<a href="/index">Home</a>
+         <a href={{url_for('main.logout')}}>Log Out</a>
+        </div>
+       <hr>
+       {% block content %}{% endblock %}
+    </body>
+
+</head>
+</html>

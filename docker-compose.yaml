@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydb
+    volumes:
+      - db_data:/var/lib/mysql
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: your-backend-image
+    environment:
+      DATABASE_URL: mysql://root:password@db/mydb
+    depends_on:
+      - db
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    image: your-frontend-image
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+
+volumes:
+  db_data:

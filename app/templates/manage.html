@@ -1,0 +1,19 @@
+<!doctype html>
+{% extends "second.html" %}
+
+{% block content %}
+    <h1>Manage Requests</h1>
+    <p>Here are the requests:</p>
+    <form method="post">
+        <input type="hidden" name="idx" value=" {{idx}}">
+        <p> Title: {{request.title}}</p>
+        <p> Description: {{request.description}}</p>
+        <p> Status: {{request.status}}</p>
+        <p> Created Date: {{request.createdate}}</p>
+        <button type="submit" value="next" name="action" {% if idx >= total-1 %} disabled {% endif %}>next </button>
+        <button type="submit" value="previous" name="action"{% if idx <=0 %} disabled {% endif %}>previous </button>
+        <button type="submt" value="delete" name ="action"{% if total==0 %} disabled {% endif %}> Remove</button>
+        <button type="submit" value="update" name="action"> Update</button>
+    </form> 
+  
+{% endblock %}

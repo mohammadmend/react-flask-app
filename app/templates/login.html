@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{%block content%}
+    <h1>Welcom to login</h1>
+        <form method ="post">
+            <label>Username: <input name="username" required></label><br>
+            <label>Password: <input name="password" required></label><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>
+            <a href="/create">Create Account</a>
+        </p>
+
+{% endblock %}

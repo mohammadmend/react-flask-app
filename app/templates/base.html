@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - APP</title>
+      {% else %}
+      <title>Welcome to Support</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>APP:<a href="/create">create account</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
